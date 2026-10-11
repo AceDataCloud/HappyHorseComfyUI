@@ -1,0 +1,18 @@
+[project]
+name = "happy-horse"
+version = "0.1.0"
+description = "Happy Horse video generation, editing, task lookup, and native video loading through Ace Data Cloud"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = ["requests>=2.31,<3"]
+classifiers = ["Operating System :: OS Independent"]
+
+[project.urls]
+Repository = "https://github.com/AceDataCloud/HappyHorseComfyUI"
+Documentation = "https://github.com/AceDataCloud/HappyHorseComfyUI#readme"
+"Bug Tracker" = "https://github.com/AceDataCloud/HappyHorseComfyUI/issues"
+
+[tool.comfy]
+PublisherId = "acedatacloud"
+DisplayName = "Happy Horse by Ace Data Cloud"
+Icon = "https://raw.githubusercontent.com/AceDataCloud/HappyHorseComfyUI/main/assets/logo-400.png"
