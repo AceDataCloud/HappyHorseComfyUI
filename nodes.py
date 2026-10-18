@@ -18,6 +18,13 @@ def _submitted(result):
             "result": (status, task_id, video_url, trace_id)}
 
 
+
+class _FreshTaskLookup:
+    @classmethod
+    def IS_CHANGED(cls, **kwargs):
+        # Task state changes remotely even when this graph's inputs do not.
+        return float('nan')
+
 class AceHappyHorseTextToVideo:
     @classmethod
     def INPUT_TYPES(cls):
@@ -122,7 +129,7 @@ class AceHappyHorseVideoEdit:
                                  audio_setting=audio_setting, watermark=watermark, seed=seed))
 
 
-class AceHappyHorseRetrieve:
+class AceHappyHorseRetrieve(_FreshTaskLookup):
     @classmethod
     def INPUT_TYPES(cls):
         return {"required": {
@@ -144,7 +151,7 @@ class AceHappyHorseRetrieve:
                 "result": (status, task_id, video_url, trace_id)}
 
 
-class AceHappyHorseRetrieveBatch:
+class AceHappyHorseRetrieveBatch(_FreshTaskLookup):
     @classmethod
     def INPUT_TYPES(cls):
         return {"required": {"task_ids_json": ("STRING", {"multiline": True, "default": "[]"})}}

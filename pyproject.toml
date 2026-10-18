@@ -1,6 +1,6 @@
 [project]
 name = "happy-horse"
-version = "0.1.1"
+version = "0.1.2"
 description = "Happy Horse (HappyHorse) video generation, editing, task lookup, and native video loading through Ace Data Cloud"
 license = { file = "LICENSE" }
 requires-python = ">=3.10"

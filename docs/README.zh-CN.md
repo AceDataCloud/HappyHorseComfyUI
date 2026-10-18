@@ -9,7 +9,7 @@
 
 ## 当前版本与安装来源
 
-本源码版本为 **0.1.1**，版本 ZIP 见 [GitHub Releases](https://github.com/AceDataCloud/HappyHorseComfyUI/releases)。下文 Registry 安装段保留 **2026-10-19 已核 Active 的 0.1.0**；该旧 ZIP 尚不包含本版更新的图文、示例或修复。需要本版时，使用对应 GitHub Release ZIP，或等 Registry 中准确的 **0.1.1** 变为 Active 后再手选该版本；不要用默认 nightly 代替已核 stable。
+本源码版本为 **0.1.2**，版本 ZIP 见 [GitHub Releases](https://github.com/AceDataCloud/HappyHorseComfyUI/releases)。下文 Registry 安装段保留 **2026-10-19 已核 Active 的 0.1.0**；该旧 ZIP 尚不包含本版更新的图文、示例或修复。需要本版时，使用对应 GitHub Release ZIP，或等 Registry 中准确的 **0.1.2** 变为 Active 后再手选该版本；不要用默认 nightly 代替已核 stable。
 
 从 GitHub ZIP 安装：停止 ComfyUI，先备份已有同名节点目录，把 ZIP 内文件解压到 `ComfyUI/custom_nodes/happy-horse/`（不要多嵌套一层目录），在该目录运行 `python -m pip install -r requirements.txt`，然后重启并刷新。API Token 仍只配在实际启动进程环境中。GitHub ZIP 安装与 Registry/Manager 正式稳定版安装是不同路径。
 
@@ -59,3 +59,5 @@ python -m pip install -r requirements.txt
 导入 [02-retrieve-and-save.json](../examples/02-retrieve-and-save.json)，填入**同一个任务 ID**。工作流为 **Retrieve Task → Load Video → Save Video**。若 240 秒后仍为 pending，只重跑查询工作流。批量查询节点可只读查询 1–20 个已有 ID。
 
 提交超时或 HTTP 5xx 时，先到 [Ace Data Cloud 控制台](https://platform.acedata.cloud/console/applications?utm_source=comfyui&utm_medium=referral&utm_campaign=evergreen&utm_content=happyhorsecomfyui_readme_zh_cn_api_key)按任务或 Trace ID 查请求记录，再决定是否重提。查询和媒体下载不应新增视频生成账单。详见[隐私说明](PRIVACY.md)。
+
+查询节点每次队列执行都会重新读取同一任务，不复用旧pending结果；收费提交在输入不变时仍保留缓存，避免查询时重发收费生成。导入或运行工作流前先关闭自动队列/自动运行，提交图只明确运行一次。
