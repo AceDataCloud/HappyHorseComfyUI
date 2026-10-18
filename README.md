@@ -1,8 +1,8 @@
 # Happy Horse for ComfyUI by Ace Data Cloud
 
-Generate and edit Happy Horse videos with your Ace Data Cloud account, retrieve the **same task ID**, and load completed results as ComfyUI's native `VIDEO` type. These nodes call a hosted API; no local model or GPU is needed. Submissions consume Credits at the [current Happy Horse price](https://platform.acedata.cloud/models).
+Generate and edit Happy Horse (HappyHorse) videos with your Ace Data Cloud account, retrieve the **same task ID**, and load completed results as ComfyUI's native `VIDEO` type. These nodes call a hosted API; no local model or GPU is needed. Submissions consume Credits at the [current Happy Horse price](https://platform.acedata.cloud/models?utm_source=comfyui&utm_medium=referral&utm_campaign=evergreen&utm_content=happyhorsecomfyui_readme_en_pricing).
 
-[简体中文](docs/README.zh-CN.md) · [Ace Data Cloud](https://platform.acedata.cloud) · [Issues](https://github.com/AceDataCloud/HappyHorseComfyUI/issues)
+[简体中文](docs/README.zh-CN.md) · [Ace Data Cloud](https://platform.acedata.cloud?utm_source=comfyui&utm_medium=referral&utm_campaign=evergreen&utm_content=happyhorsecomfyui_readme_en_home) · [Issues](https://github.com/AceDataCloud/HappyHorseComfyUI/issues)
 
 | Node | Dify action and model family |
 | --- | --- |
@@ -17,9 +17,17 @@ All **seven model IDs** and all four generation actions in [HappyHorseDify](http
 
 ## Install
 
-Once the Registry version is active, open **ComfyUI-Manager → Custom Nodes**, search **Happy Horse**, confirm publisher **acedatacloud** and package **Happy Horse by Ace Data Cloud**, install, and restart. The Registry ID is `happy-horse`; the source repository is `AceDataCloud/HappyHorseComfyUI`. Source availability and Registry upload alone do not prove Manager installation.
+Open the official [Happy Horse by Ace Data Cloud Registry page](https://registry.comfy.org/nodes/happy-horse), or open **Manager → Custom Nodes Manager** and search **Happy Horse**. The service is also known as **HappyHorse**; that no-space alias is being added to this package metadata, while the current public search is verified with **Happy Horse**. Use **Ace Data Cloud** as a fallback to find this publisher’s packages. Select **Happy Horse by Ace Data Cloud**, confirm publisher **acedatacloud** and source repository [`AceDataCloud/HappyHorseComfyUI`](https://github.com/AceDataCloud/HappyHorseComfyUI), then click **Install**. In **Select Version**, explicitly select the approved Registry stable release **0.1.0**. The normal dialog may initially highlight **nightly**; do not accept it for this stable-release tutorial. Keep dependency installation enabled. After **Restart Required**, restart ComfyUI and refresh the browser. Registry ID: `happy-horse`.
 
-For local source testing:
+![Actual ComfyUI-Manager list with this Ace service package](docs/images/manager-discovery.png)
+
+![Actual Manager list after installation and restart](docs/images/manager-installed.png)
+
+These are real **2026-10-16, ComfyUI 0.41.0 Linux** screenshots from the publisher-brand installation test, not a new paid request or a screenshot of service-only search. See [image sources and limits](docs/screenshot-sources.json).
+
+This Registry stable installation was verified on **2026-10-16 with original ComfyUI 0.41.0 on Linux CPU**. That test did not submit a generation or chat request. Newer host versions and each paid action require their own checks; model availability and price remain subject to the current service rules.
+
+For optional local source testing:
 
 ```bash
 cd /path/to/ComfyUI/custom_nodes
@@ -31,6 +39,20 @@ python -m pip install -r requirements.txt
 This package targets ComfyUI 0.39.0 or newer because Load Video uses its native `VIDEO` type. Restart and search for **Happy Horse**.
 
 ## Set your Ace Data Cloud key
+
+### Copy or create your own API Token
+
+The Applications screen is shared across Ace integrations. **1** copies the existing token; **2** opens **Manage Keys**, then **Create**. A new account signs in/registers and initializes **General application** first. Verify this service's access, current price, balance and any expiry/Allowed APIs restrictions.
+
+![Ace Applications: copy token or open Manage Keys](docs/images/get-api-key-en.png)
+
+![Ace Create Key dialog](docs/images/create-api-key-en.png)
+
+These masked **2026-10-08** Ace Console screenshots are reused from SunoDify. The example credential name in the second image is `Dify tutorial`; name yours `ComfyUI`. No credential was created by this guide update. Paste only the token into **the environment of the process that launches ComfyUI** (`ACEDATACLOUD_API_KEY`), then restart. There is no ComfyUI API Key textbox in these nodes; do not paste it into prompt/JSON widgets or the workflow file. An unrelated terminal export does not configure an already-running Desktop process.
+
+1. Sign in to [Ace Data Cloud → Applications](https://platform.acedata.cloud/console/applications?utm_source=comfyui&utm_medium=referral&utm_campaign=evergreen&utm_content=happyhorsecomfyui_readme_en_api_key). If your account has no General application, choose **Initialize General Application**.
+2. Open **General application** and check access to the service used by this package. A service-specific application key is limited to that service. Copy an existing API key, or choose **Manage Keys → Create** for a separate key named `ComfyUI`.
+3. Copy only the token string, without `Bearer ` or quotation marks. A platform management token is not the API key these nodes use. If you enable **Allowed APIs**, include every submission and task-query path used by your workflow. Check current pricing and available Credits before a paid action.
 
 Use an application key with Happy Horse access. Set it in the **ComfyUI process environment** and restart:
 
@@ -53,7 +75,7 @@ The read-only Retrieve Tasks node accepts a JSON array of 1–20 IDs and returns
 
 ## Check usage and troubleshoot
 
-Check the submission by task or trace ID in the [Ace Data Cloud Console](https://platform.acedata.cloud/console/applications). Read-only queries and media downloads should not create another generation.
+Check the submission by task or trace ID in the [Ace Data Cloud Console](https://platform.acedata.cloud/console/applications?utm_source=comfyui&utm_medium=referral&utm_campaign=evergreen&utm_content=happyhorsecomfyui_readme_en_api_key). Read-only queries and media downloads should not create another generation.
 
 | Symptom | Action |
 | --- | --- |
