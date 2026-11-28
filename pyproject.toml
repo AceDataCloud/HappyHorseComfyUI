@@ -1,6 +1,6 @@
 [project]
 name = "happy-horse"
-version = "0.1.2"
+version = "0.1.3"
 description = "Happy Horse (HappyHorse) video generation, editing, task lookup, and native video loading through Ace Data Cloud"
 license = { file = "LICENSE" }
 requires-python = ">=3.10"
@@ -14,5 +14,5 @@ Documentation = "https://github.com/AceDataCloud/HappyHorseComfyUI#readme"
 
 [tool.comfy]
 PublisherId = "acedatacloud"
-DisplayName = "Happy Horse by Ace Data Cloud"
+DisplayName = "Happy Horse"
 Icon = "https://raw.githubusercontent.com/AceDataCloud/HappyHorseComfyUI/main/assets/logo-400.png"
